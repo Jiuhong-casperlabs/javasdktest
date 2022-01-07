@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        // attributes 'Main-Class': 'com.jh.Myapp'
+        // attributes 'Class-Path': 'casper-java-sdk-0.3.0.jar'
+        attributes(
+                   'Class-Path': 'casper-java-sdk-0.3.0.jar',
+                   'Main-Class': 'com.jh.Myapp'
+                   )
+
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'network.casper:casper-java-sdk:0.3.0'
+}
