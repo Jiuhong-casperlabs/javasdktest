@@ -7,8 +7,6 @@ import com.casper.sdk.types.DeployParams;
 import com.casper.sdk.types.ModuleBytes;
 import com.casper.sdk.types.Transfer;
 
-// import com.casper.sdk.KeyPairStreams;
-
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.KeyPair;
@@ -16,16 +14,7 @@ import java.security.PublicKey;
 import java.time.Instant;
 import java.io.File;
 
-
-import com.casper.sdk.CasperSdk;
 import com.casper.sdk.types.*;
-
-
-import java.math.BigInteger;
-import java.security.KeyPair;
-import java.time.Instant;
-
-
 
 public class TestTransfer {
     public static void main(String args[]) {
