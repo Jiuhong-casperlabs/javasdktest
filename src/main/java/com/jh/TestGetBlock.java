@@ -16,7 +16,7 @@ import java.io.File;
 
 import com.casper.sdk.types.*;
 
-public class TestTransfer {
+public class TestGetBlock {
     public static void main(String args[]) {
         System.out.println("Hello Java");
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
@@ -48,32 +48,11 @@ public class TestTransfer {
                 1
         );
 
-        final ModuleBytes payment = casperSdk.standardPayment(new BigInteger("10000000000"));
+        final String result = casperSdk.getBlockInfoByHeight(10000);
+
+        // final String result_hash = casperSdk.getBlockInfo("a1f829cff2389cf6637ed89fb2fab48351b1278c131ee8445e1e28333c9a44d0");
         
-        Deploy deploy = casperSdk.makeTransferDeploy(
-                new DeployParams(
-                    publicKey,
-                        "casper-test",
-                        10,
-                        Instant.now().toEpochMilli(),
-                        DeployParams.DEFAULT_TTL,
-                        null
-                ),
-                transfer,
-                payment
-        );
 
-       deploy =  casperSdk.signDeploy(deploy, kp);
-        try {
-            final String json = casperSdk.deployToJson(deploy);
-            System.out.println(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        final Digest digest = casperSdk.putDeploy(deploy);
-        final Deploy networkDeploy = casperSdk.getDeploy(digest);
-
-        System.out.println(networkDeploy);
+        System.out.println(result);
     }
 }
