@@ -18,11 +18,10 @@ import com.casper.sdk.types.*;
 
 public class TestTransfer {
     public static void main(String args[]) {
-        System.out.println("Hello Java");
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
 
         final SigningService sss = new SigningService();
-        // File pkfile = new File("E:\\learning\\java\\test\\keys\\test1\\test1_public_key.pem");
+
         // 
         File pkfile = new File("/home/jh/keys/test1/public_key.pem");
         

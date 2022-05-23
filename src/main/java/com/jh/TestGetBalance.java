@@ -7,7 +7,6 @@ import java.security.PublicKey;
 
 public class TestGetBalance {
     public static void main(String args[]) {
-        System.out.println("Hello Java");
         // final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777); //testnet
         final CasperSdk casperSdk = new CasperSdk("http://3.14.161.135", 7777); //mainnet
 
