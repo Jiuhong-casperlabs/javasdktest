@@ -15,10 +15,10 @@ public class TestKey {
         final SigningService signingService = new SigningService();
         final KeyPair keyPair = signingService.generateKeyPair(Algorithm.ED25519);
 
+        System.out.println("===account address=========");
+        final CLPublicKey publicKey = signingService.toClPublicKey(keyPair.getPublic());
+        System.out.println(publicKey.toAccountHex());
         System.out.println("============");
-        System.out.println(keyPair.getPublic());
-        System.out.println("============");
-        // System.out.println(keyPair.getPrivate());
 
         // create PRIVATE KEY file
         final ByteArrayOutputStream privateOut = new ByteArrayOutputStream();
