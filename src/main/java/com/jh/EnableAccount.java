@@ -16,7 +16,8 @@ public class EnableAccount {
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
         final SigningService sss = new SigningService();
 
-        // contract wasm path
+        // contract wasm path => 
+        // original ~/casper-node/target/wasm32-unknown-unknown/release/set_action_thresholds.wasm
         final InputStream contractwasmIn = HowToUtils.getWasmIn("wasm/set_action_thresholds.wasm");
 
         // chain name

@@ -17,7 +17,8 @@ public class DisableContract {
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
         final SigningService sss = new SigningService();
 
-        // contract wasm path
+        // contract wasm path => 
+        // original ~/casper-node/target/wasm32-unknown-unknown/release/disable_contract.wasm
         final InputStream contractwasmIn = HowToUtils.getWasmIn("wasm/disable_contract.wasm");
 
         // chain name
@@ -25,7 +26,7 @@ public class DisableContract {
         // payment
         final Number payment = 3e9;
 
-        // Get contract operator keypair.
+        // Get admin keypair.
         File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
         File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair operatorKeyPair = sss.loadKeyPair(pkfile, skfile);
