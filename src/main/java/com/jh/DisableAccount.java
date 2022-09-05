@@ -2,37 +2,18 @@ package com.jh;
 
 import com.casper.sdk.CasperSdk;
 import com.casper.sdk.service.signing.SigningService;
-import com.casper.sdk.service.serialization.util.ByteUtils;
 import com.casper.sdk.types.Deploy;
 import com.casper.sdk.types.*;
-import com.casper.sdk.exceptions.CasperException;
 import com.casper.sdk.service.serialization.cltypes.CLValueBuilder;
 
-import org.apache.commons.io.IOUtils;
-
 import java.security.KeyPair;
-import java.io.IOException;
 import java.time.Instant;
 import java.io.InputStream;
 import java.io.File;
 
 
-final class HowToUtils {
-     static InputStream getWasmIn(final String wasmPath) {
-        return HowToUtils.class.getResourceAsStream(wasmPath);
-    }
-
-    public static byte[] readWasm(final InputStream wasmIn) {
-        try {
-            return IOUtils.toByteArray(wasmIn);
-        } catch (IOException e) {
-            throw new CasperException("Error loading wasm", e);
-        }
-    }
-}
-
 public class DisableAccount {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
         final SigningService sss = new SigningService();
 
