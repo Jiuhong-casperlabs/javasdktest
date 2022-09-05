@@ -1,0 +1,58 @@
+admin: test1
+/Users/jh/keys/test1/
+user: test3
+/Users/jh/keys/test3/
+
+casper-client transfer --chain-name mynetwork \
+-n http://16.162.124.124:7777 \
+--secret-key /Users/jh/keys/test1/secret_key.pem \
+--payment-amount 100000000 \
+--amount 10000000000000 \
+--target-account 0118686f9a8ca3362ca24ab8d7e05edff7f780ac432f14c3e14a333c5571203c76 \
+--transfer-id 1
+
+
+casper-client put-deploy --chain-name mynetwork \
+--node-address http://16.162.124.124:7777 \
+--secret-key /Users/jh/keys/test3/secret_key.pem \
+--session-path /Users/jh/mywork/disable-enable-contract/contract/target/wasm32-unknown-unknown/release/contract.wasm \
+--payment-amount 30000000000
+
+contracthash:
+hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58
+contractpackagehash:
+hash-5658b25984f5259aef86ca26de738d91525dfcb70103dcd17fe9397dbe8b4744
+
+# call entry point hello_world and it works fine
+casper-client put-deploy --chain-name mynetwork \
+--node-address http://16.162.124.124:7777 \
+--secret-key /Users/jh/keys/test3/secret_key.pem \
+--session-hash hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58 \
+--session-entry-point hello_world \
+--payment-amount 10000000000
+
+disable contract=(admin)==
+DisableContract.java => ok
+
+#call entry point hello_world again =>
+casper-client put-deploy --chain-name mynetwork \
+--node-address http://16.162.124.124:7777 \
+--secret-key /Users/jh/keys/test3/secret_key.pem \
+--session-hash hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58 \
+--session-entry-point hello_world \
+--payment-amount 10000000000
+
+=>  "error_message": "Contract is disabled",
+
+#enable contract (admin)
+EnableContract.java => ok
+
+# call entry point hello_world again =>
+casper-client put-deploy --chain-name mynetwork \
+--node-address http://16.162.124.124:7777 \
+--secret-key /Users/jh/keys/test3/secret_key.pem \
+--session-hash hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58 \
+--session-entry-point hello_world \
+--payment-amount 10000000000
+
+=> success

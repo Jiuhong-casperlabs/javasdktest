@@ -18,23 +18,23 @@ import com.casper.sdk.types.*;
 
 public class TestTransfer {
     public static void main(String args[]) {
-        final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
+        final CasperSdk casperSdk = new CasperSdk("http://52.70.214.247", 7777);
 
         final SigningService sss = new SigningService();
 
         // 
-        File pkfile = new File("/home/jh/keys/test1/public_key.pem");
+        File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
         
         // File skfile = new File("/home/jh/keys/test1/secret_key.pem");
         // "/home/jh/keys/test1/secret_key.pem"
-        File skfile = new File("/home/jh/keys/test1/secret_key.pem");
+        File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair kp = sss.loadKeyPair(pkfile, skfile);
         
-        File pkfile1 = new File("/home/jh/keys/test77/public_key.pem");
+        File pkfile1 = new File("/Users/jh/keys/test2/public_key.pem");
         
         // File skfile = new File("/home/jh/keys/test1/secret_key.pem");
         // "/home/jh/keys/test1/secret_key.pem"
-        File skfile1 = new File("/home/jh/keys/test77/secret_key.pem");
+        File skfile1 = new File("/Users/jh/keys/test2/secret_key.pem");
         final KeyPair kp1 = sss.loadKeyPair(pkfile1,skfile1);
 
         final PublicKey publicKey = kp.getPublic();
@@ -66,13 +66,15 @@ public class TestTransfer {
         try {
             final String json = casperSdk.deployToJson(deploy);
             System.out.println(json);
+            System.out.println("====json====");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         final Digest digest = casperSdk.putDeploy(deploy);
-        final Deploy networkDeploy = casperSdk.getDeploy(digest);
+        System.out.println(digest);
+        // final Deploy networkDeploy = casperSdk.getDeploy(digest);
 
-        System.out.println(networkDeploy);
+        // System.out.println(networkDeploy);
     }
 }
