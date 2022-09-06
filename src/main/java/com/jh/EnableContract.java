@@ -5,12 +5,8 @@ import com.casper.sdk.service.signing.SigningService;
 import com.casper.sdk.service.serialization.util.ByteUtils;
 import com.casper.sdk.types.Deploy;
 import com.casper.sdk.types.*;
-import com.casper.sdk.exceptions.CasperException;
-
-import org.apache.commons.io.IOUtils;
 
 import java.security.KeyPair;
-import java.io.IOException;
 import java.time.Instant;
 import java.io.InputStream;
 import java.io.File;

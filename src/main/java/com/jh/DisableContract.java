@@ -6,12 +6,11 @@ import com.casper.sdk.service.serialization.util.ByteUtils;
 import com.casper.sdk.types.Deploy;
 import com.casper.sdk.types.*;
 
-
 import java.security.KeyPair;
-
 import java.time.Instant;
 import java.io.InputStream;
 import java.io.File;
+
 public class DisableContract {
     public static void main(String[] args) {
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
