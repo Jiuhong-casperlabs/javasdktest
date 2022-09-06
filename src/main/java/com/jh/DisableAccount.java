@@ -10,6 +10,7 @@ import java.security.KeyPair;
 import java.time.Instant;
 import java.io.InputStream;
 import java.io.File;
+import java.security.PublicKey;
 
 
 public class DisableAccount {
@@ -31,14 +32,12 @@ public class DisableAccount {
         File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair adminKeyPair = sss.loadKeyPair(pkfile, skfile);
 
-        // Get user (to be disable) keypair.
-        File pkfile1 = new File("/Users/jh/keys/test3/public_key.pem");
-        File skfile1 = new File("/Users/jh/keys/test3/secret_key.pem");
-        final KeyPair userKeyPair = sss.loadKeyPair(pkfile1, skfile1);
-
+        // Get user (to be disable) public key.
+        final PublicKey userpublicKey = casperSdk.createPublicKey("0118686f9a8ca3362ca24ab8d7e05edff7f780ac432f14c3e14a333c5571203c76");
+        
         // Set deploy.
         final Deploy deploy = casperSdk.makeDeploy(new DeployParams(
-            userKeyPair.getPublic(),
+            userpublicKey,
             chainName,
             1,
             Instant.now().toEpochMilli(),
