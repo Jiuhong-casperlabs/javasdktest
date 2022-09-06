@@ -31,7 +31,7 @@ public class EnableAccount {
         File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair adminKeyPair = sss.loadKeyPair(pkfile, skfile);
         
-        // Get user (to be disable) public key.
+        // Get user (to be enable) public key.
         final PublicKey userpublicKey = casperSdk.createPublicKey("0118686f9a8ca3362ca24ab8d7e05edff7f780ac432f14c3e14a333c5571203c76");
         
         // Set deploy.
