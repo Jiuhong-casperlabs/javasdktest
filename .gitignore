@@ -6,3 +6,5 @@ build
 
 # ignore created file
 *.pem
+.vscode
+bin

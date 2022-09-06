@@ -66,17 +66,4 @@ public class EnableContract {
         final Digest digest = casperSdk.putDeploy(deploy);
         System.out.println(digest);
     }
-
-    static InputStream getWasmIn(final String wasmPath) {
-        return HowToUtils.class.getResourceAsStream(wasmPath);
-    }
-
-    public static byte[] readWasm(final InputStream wasmIn) {
-        try {
-            return IOUtils.toByteArray(wasmIn);
-        } catch (IOException e) {
-            throw new CasperException("Error loading wasm", e);
-        }
-    }
-
 }
