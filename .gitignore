@@ -8,3 +8,7 @@ build
 *.pem
 .vscode
 bin
+
+.ignore
+chengdu
+note_transfer

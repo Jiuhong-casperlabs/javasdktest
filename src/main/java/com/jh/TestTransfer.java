@@ -18,32 +18,25 @@ import com.casper.sdk.types.*;
 
 public class TestTransfer {
     public static void main(String args[]) {
-        final CasperSdk casperSdk = new CasperSdk("http://52.70.214.247", 7777);
+        final CasperSdk casperSdk = new CasperSdk("http://117.107.141.162", 7777);
 
         final SigningService sss = new SigningService();
 
-        // 
-        File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
+        // source account keypair
+        File pkfile = new File("/Users/jh/keys/chengdu/public_key.pem");
+        File skfile = new File("/Users/jh/keys/chengdu/secret_key.pem");
+        final KeyPair source = sss.loadKeyPair(pkfile, skfile);
         
-        // File skfile = new File("/home/jh/keys/test1/secret_key.pem");
-        // "/home/jh/keys/test1/secret_key.pem"
-        File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
-        final KeyPair kp = sss.loadKeyPair(pkfile, skfile);
-        
-        File pkfile1 = new File("/Users/jh/keys/test2/public_key.pem");
-        
-        // File skfile = new File("/home/jh/keys/test1/secret_key.pem");
-        // "/home/jh/keys/test1/secret_key.pem"
-        File skfile1 = new File("/Users/jh/keys/test2/secret_key.pem");
-        final KeyPair kp1 = sss.loadKeyPair(pkfile1,skfile1);
+        // Get target public key.
+        final PublicKey targetpublicKey = casperSdk.createPublicKey("01f5f5677e7abb2c7cca5b3db730d0a87d94a7d7af19ed307ac552e77406e7929f");
 
-        final PublicKey publicKey = kp.getPublic();
-        final PublicKey publicKey1 = kp1.getPublic();
+
+        final PublicKey sourcepublicKey = source.getPublic();
 
 
         final Transfer transfer = casperSdk.newTransfer(
             new BigInteger("2500000000"),
-            publicKey1,
+            targetpublicKey,
                 1
         );
 
@@ -51,8 +44,8 @@ public class TestTransfer {
         
         Deploy deploy = casperSdk.makeTransferDeploy(
                 new DeployParams(
-                    publicKey,
-                        "casper-test",
+                    sourcepublicKey,
+                        "chengdu",
                         10,
                         Instant.now().toEpochMilli(),
                         DeployParams.DEFAULT_TTL,
@@ -62,7 +55,7 @@ public class TestTransfer {
                 payment
         );
 
-       deploy =  casperSdk.signDeploy(deploy, kp);
+       deploy =  casperSdk.signDeploy(deploy, source);
         try {
             final String json = casperSdk.deployToJson(deploy);
             System.out.println(json);
@@ -73,8 +66,5 @@ public class TestTransfer {
 
         final Digest digest = casperSdk.putDeploy(deploy);
         System.out.println(digest);
-        // final Deploy networkDeploy = casperSdk.getDeploy(digest);
-
-        // System.out.println(networkDeploy);
     }
 }
