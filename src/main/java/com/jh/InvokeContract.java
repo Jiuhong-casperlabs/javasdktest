@@ -38,8 +38,8 @@ public class InvokeContract {
             DeployParams.DEFAULT_TTL,
             null),
         new StoredContractByHash(
-            new ContractHash(contracthash),
-                "hello_world",
+            new ContractHash(contracthash),   //contracthash
+                "hello_world",    // entrypoint
                 new DeployNamedArgBuilder()
                 .build()
         ),
