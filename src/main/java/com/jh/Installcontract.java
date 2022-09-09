@@ -2,7 +2,6 @@ package com.jh;
 
 import com.casper.sdk.CasperSdk;
 import com.casper.sdk.service.signing.SigningService;
-import com.casper.sdk.service.serialization.util.ByteUtils;
 import com.casper.sdk.types.Deploy;
 import com.casper.sdk.types.*;
 

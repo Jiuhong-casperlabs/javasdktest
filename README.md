@@ -10,6 +10,9 @@
 
 [EnableAccount](src/main/java/com/jh/EnableAccount.java)
 
+
+## Install Contract
+[InstallContract](src/main/java/com/jh/InstallContract.java)
 ## invoke entrypoint of contract
 [InvokeContract](src/main/java/com/jh/InvokeContract.java)
 
