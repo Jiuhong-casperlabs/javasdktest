@@ -12,7 +12,7 @@
 
 
 ## Install Contract
-[InstallContract](src/main/java/com/jh/InstallContract.java)
+[InstallContract](src/main/java/com/jh/Installcontract.java)
 ## invoke entrypoint of contract
 [InvokeContract](src/main/java/com/jh/InvokeContract.java)
 

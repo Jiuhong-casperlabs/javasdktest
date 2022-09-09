@@ -10,7 +10,7 @@ import java.time.Instant;
 import java.io.InputStream;
 import java.io.File;
 
-public class InstallContract {
+public class Installcontract {
     public static void main(String[] args) {
         final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
         final SigningService sss = new SigningService();
