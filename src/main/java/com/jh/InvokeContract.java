@@ -20,7 +20,7 @@ public class InvokeContract {
         final Number payment = 3e9;
 
 
-        // Get admin keypair.
+        // Get operator keypair.
         File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
         File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair operatorKeyPair = sss.loadKeyPair(pkfile, skfile);
