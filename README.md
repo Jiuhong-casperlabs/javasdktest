@@ -10,5 +10,8 @@
 
 [EnableAccount](src/main/java/com/jh/EnableAccount.java)
 
+## invoke entrypoint of contract
+[InvokeContract](src/main/java/com/jh/InvokeContract.java)
+
 ## transfer
 [Transfer](src/main/java/com/jh/TestTransfer.java)
