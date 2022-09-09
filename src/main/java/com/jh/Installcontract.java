@@ -24,7 +24,7 @@ public class InstallContract {
         // payment
         final Number payment = 30e9;
 
-        // Get admin keypair.
+        // Get user keypair.
         File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
         File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
         final KeyPair operatorKeyPair = sss.loadKeyPair(pkfile, skfile);
