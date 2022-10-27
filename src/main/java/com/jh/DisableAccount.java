@@ -28,8 +28,8 @@ public class DisableAccount {
         final Number payment = 3e9;
 
         // Get admin keypair.
-        File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
-        File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
+        File pkfile = new File("/home/jh/keys/test1/public_key.pem");
+        File skfile = new File("/home/jh/keys/test1/secret_key.pem");
         final KeyPair adminKeyPair = sss.loadKeyPair(pkfile, skfile);
 
         // Get user (to be disable) public key.

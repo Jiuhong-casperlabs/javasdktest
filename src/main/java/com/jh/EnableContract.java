@@ -27,8 +27,8 @@ public class EnableContract {
 
 
         // Get admin keypair.
-        File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
-        File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
+        File pkfile = new File("/home/jh/keys/test1/public_key.pem");
+        File skfile = new File("/home/jh/keys/test1/secret_key.pem");
         final KeyPair operatorKeyPair = sss.loadKeyPair(pkfile, skfile);
 
 

@@ -1,7 +1,7 @@
 admin: test1
-/Users/jh/keys/test1/
+/home/jh/keys/test1/
 user: test3
-/Users/jh/keys/test3/
+/home/jh/keys/test3/
 
 
 DisableAccount.java
@@ -9,7 +9,7 @@ DisableAccount.java
 
 casper-client put-deploy --chain-name mynetwork \
 --node-address http://16.162.124.124:7777 \
---secret-key /Users/jh/keys/test3/secret_key.pem \
+--secret-key /home/jh/keys/test3/secret_key.pem \
 --session-hash hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58 \
 --session-entry-point hello_world \
 --payment-amount 10000000000
@@ -25,7 +25,7 @@ EnableAccount.java
 
 casper-client put-deploy --chain-name mynetwork \
 --node-address http://16.162.124.124:7777 \
---secret-key /Users/jh/keys/test3/secret_key.pem \
+--secret-key /home/jh/keys/test3/secret_key.pem \
 --session-hash hash-f841c6074845bedfa7c29d1650790f8fd4cf8436b1c24bc5d6d1fa0d777a6d58 \
 --session-entry-point hello_world \
 --payment-amount 10000000000

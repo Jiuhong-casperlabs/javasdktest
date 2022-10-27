@@ -12,7 +12,9 @@ import java.io.File;
 
 public class Installcontract {
     public static void main(String[] args) {
-        final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
+        // final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777);
+        final CasperSdk casperSdk = new CasperSdk("http://35.169.205.205", 7777);
+        
         final SigningService sss = new SigningService();
 
         // contract code github: https://github.com/Jiuhong-casperlabs/disable-enable-contract
@@ -20,13 +22,14 @@ public class Installcontract {
         final InputStream contractwasmIn = HowToUtils.getWasmIn("wasm/contract.wasm");
 
         // chain name
-        final String chainName = "mynetwork";
+        // final String chainName = "mynetwork";
+        final String chainName = "casper-test";
         // payment
         final Number payment = 30e9;
 
         // Get operator keypair.
-        File pkfile = new File("/Users/jh/keys/test1/public_key.pem");
-        File skfile = new File("/Users/jh/keys/test1/secret_key.pem");
+        File pkfile = new File("/home/jh/keys/test12/public_key.pem");
+        File skfile = new File("/home/jh/keys/test12/secret_key.pem");
         final KeyPair operatorKeyPair = sss.loadKeyPair(pkfile, skfile);
 
         // Set deploy.
