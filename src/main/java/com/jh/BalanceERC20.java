@@ -71,7 +71,7 @@ public class BalanceERC20 {
                 .post(body)
                 .build();
         final Response response = client.newCall(request).execute();
-        //noinspection ConstantConditions
+
         String result = response.body().string();
         System.out.println(result);
 
