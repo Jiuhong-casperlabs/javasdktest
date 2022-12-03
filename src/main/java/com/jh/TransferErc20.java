@@ -13,7 +13,7 @@ import java.io.File;
 
 public class TransferErc20 {
     public static void main(String[] args) {
-        final CasperSdk casperSdk = new CasperSdk("http://3.208.91.63", 7777);
+        final CasperSdk casperSdk = new CasperSdk("http://94.130.10.55", 7777);
         final SigningService sss = new SigningService();
 
         // chain name

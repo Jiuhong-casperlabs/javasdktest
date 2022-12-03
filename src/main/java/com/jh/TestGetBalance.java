@@ -8,9 +8,9 @@ import java.security.PublicKey;
 public class TestGetBalance {
     public static void main(String args[]) {
         // final CasperSdk casperSdk = new CasperSdk("http://16.162.124.124", 7777); //testnet
-        final CasperSdk casperSdk = new CasperSdk("http://3.14.161.135", 7777); //mainnet
+        final CasperSdk casperSdk = new CasperSdk("http://94.130.10.55", 7777); //mainnet
 
-        final PublicKey publicKey = casperSdk.createPublicKey("016e2e0fbe966e1bba69e4ba0c501687458615dbcd8d7f2dc76406d896bb6acae1");
+        final PublicKey publicKey = casperSdk.createPublicKey("01d8956d47246fbe96f15114289d013a13452343d0a5316036f7bfe07ba49051a0");
         final BigInteger accountBalance = casperSdk.getAccountBalance(publicKey);
         System.out.println(accountBalance);
     }
