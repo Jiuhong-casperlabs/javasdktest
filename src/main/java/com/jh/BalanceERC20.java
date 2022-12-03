@@ -13,6 +13,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import java.util.Collections;
 import java.util.Base64;
 import java.util.Map;
 import java.io.IOException;
@@ -75,5 +76,46 @@ public class BalanceERC20 {
         String result = response.body().string();
         System.out.println(result);
 
+    }
+}
+
+class Method {
+
+    private static final String JSON_RPC = "2.0";
+    private static final int id = 1;
+    private final String method;
+    /** The parameters that will be written as JSON */
+    private final Map<String, Object> params;
+
+    public Method(final String method) {
+        this(method, Collections.emptyMap());
+    }
+
+    public Method(final String method, final Map<String, Object> params) {
+        this.method = method;
+        this.params = params;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getJsonrpc() {
+        return JSON_RPC;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public Map<String, Object> getParams() {
+        return params;
+    }
+    @Override
+    public String toString() {
+        return "Method{" +
+               "method='" + method + '\'' +
+               ", params=" + params +
+               '}';
     }
 }
